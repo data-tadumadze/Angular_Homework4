@@ -50,26 +50,26 @@ var VirtualStorage = /** @class */ (function () {
             this.items[index] = __assign(__assign({}, this.items[index]), updates);
         }
     };
-    // find(query: Partial<T>) {
-    //   return this.items.filter((item) => {
-    //     for (const key in query) {
-    //       if (item[key] !== query[key]) {
-    //         return false;
-    //       }
-    //       return true;
-    //     }
-    //   });
-    // }
-    // findOne(query: Partial<T>) {
-    //   return this.items.find((item) => {
-    //     for (const key in query) {
-    //       if (item[key] !== query[key]) {
-    //         return false;
-    //       }
-    //     }
-    //     return true;
-    //   });
-    // }
+    VirtualStorage.prototype.find = function (query) {
+        return this.items.filter(function (item) {
+            for (var key in query) {
+                if (item[key] !== query[key]) {
+                    return false;
+                }
+                return true;
+            }
+        });
+    };
+    VirtualStorage.prototype.findOne = function (query) {
+        return this.items.find(function (item) {
+            for (var key in query) {
+                if (item[key] !== query[key]) {
+                    return false;
+                }
+            }
+            return true;
+        });
+    };
     VirtualStorage.prototype.count = function () {
         return this.items.length;
     };

@@ -33,8 +33,7 @@ enum WeekDays {
   }
 
 class VirtualStorage<T extends CurrentWeather>{
-    //private - ??
-items: CurrentWeather[];
+private items: T[];
 constructor() {
     this.items = [];
 }
